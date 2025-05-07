@@ -1,0 +1,57 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Repository {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  url   String
+  prs   PullRequest[]
+}
+
+model PullRequest {
+  id        Int        @id @default(autoincrement())
+  repo      Repository @relation(fields: [repoId], references: [id])
+  repoId    Int
+  title     String
+  number    Int
+  mergedAt  DateTime
+  author    String
+  comments  Comment[]
+
+  @@unique([repoId, number])
+}
+
+model Comment {
+  id         Int       @id @default(autoincrement())
+  pr         PullRequest @relation(fields: [prId], references: [id])
+  prId       Int
+  filePath   String
+  lineNumber Int
+  text       String
+  tag        String
+  context    String?
+  recommendation String?
+}
+
+model Pattern {
+  id               Int      @id @default(autoincrement())
+  tag              String   @unique
+  description      String
+  recommendation   String
+  exampleSnippets  ExampleSnippet[]
+  occurrences      Int      @default(0)
+}
+
+model ExampleSnippet {
+  id         Int     @id @default(autoincrement())
+  pattern    Pattern @relation(fields: [patternId], references: [id])
+  patternId  Int
+  content    String
+}
