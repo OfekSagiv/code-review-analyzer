@@ -1,4 +1,4 @@
-# 📘 Project Setup Guide
+# 📘 Code Review Analyzer Tool
 
 ## 🔍 About the Project
 
