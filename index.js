@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
-import advisorRouter from './routes/advisor.js';
-import insightsRouter from './routes/insights.js';
+import advisorRouter from './src/routes/advisor.js';
+import insightsRouter from './src/routes/insights.js';
 
 const app = express();
 const prisma = new PrismaClient();
