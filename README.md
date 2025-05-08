@@ -70,7 +70,7 @@ docker compose up -d
 ```
 
 ---
-## 🧱 Prisma Setup
+## 🧱 6. Prisma Setup
 
 To connect Prisma to the local PostgreSQL database and create the necessary tables, follow these steps:
 
@@ -84,7 +84,7 @@ npx prisma db push
 
 > This will sync the schema defined in `prisma/schema.prisma` with the local database.
 ---
-## 🧠 6. Run All Scripts Automatically
+## 🧠 7. Run All Scripts Automatically
 
 This command pulls data from GitHub, tags comments using GPT, and generates an insights report:
 
@@ -95,7 +95,7 @@ node scripts/runAll.js
 
 ---
 
-## 📂 7. Output Files
+## 📂 8. Output Files
 
 After running the scripts, you'll get:
 
