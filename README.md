@@ -75,16 +75,10 @@ docker compose up -d
 To connect Prisma to the local PostgreSQL database and create the necessary tables, follow these steps:
 
 ```bash
-1. Install dependencies
-npm install
-
-2. Start PostgreSQL (make sure Docker is running)
-docker compose up -d
-
-3. Generate Prisma client
+1. Generate Prisma client
 npx prisma generate
 
-4. Push the schema to the database
+2. Push the schema to the database
 npx prisma db push
 ```
 
